@@ -1,7 +1,7 @@
 import React from 'react';
 import './About.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPalette, faClipboardCheck, faLightbulb, faCamera, faLeaf, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faPalette, faClipboardCheck, faLightbulb, faCamera, faLeaf } from '@fortawesome/free-solid-svg-icons';
 import AboutImage from '../../assets/about/about_img.jpg';
 
 export default function About() {
@@ -11,7 +11,6 @@ export default function About() {
     const faLightbulbIcon = <FontAwesomeIcon icon={faLightbulb} />
     const faCameraIcon = <FontAwesomeIcon icon={faCamera} />
     const faLeafIcon = <FontAwesomeIcon icon={faLeaf} />
-    const faPhoneIcon = <FontAwesomeIcon icon={faPhone} />
 
     return (
         <>

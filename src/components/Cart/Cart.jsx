@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import qrcode from '../../assets/cart/qrcode.jpeg';
 import './Cart.css';
@@ -23,7 +23,6 @@ const CartPage = ({ cartItems, setCartItems }) => {
   const [samePerson, setSamePerson] = useState(false);
   const [showQRModal, setShowQRModal] = useState(false);
   const [showOrderPlacedModal, setShowOrderPlacedModal] = useState(false);
-  const form = useRef();  // EmailJS form reference
 
   useEffect(() => {
     if (samePerson) {
