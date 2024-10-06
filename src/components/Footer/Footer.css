@@ -1,0 +1,99 @@
+/* Footer Container with Full-Width and Peach Gradient Background */
+.footer-container {
+    width: 100%;
+    background: linear-gradient(to bottom, #fea6a4, #ffcccb); /* Use peach gradient */
+    position: relative;
+    padding-top: 50px;
+}
+
+/* Full Width Footer */
+.footer-main {
+    width: 100%;
+    background-color: transparent;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Footer Content Layout */
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+/* Footer Heading */
+.footer-content .heading h1 {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 4rem;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+/* Contact Info */
+.contact {
+    text-align: left;
+}
+
+.contact div {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.contact p {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Social Icons */
+.footer-social-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-social-container a {
+    background-color: #850503;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    color: #fff;
+    border: 1px solid #000;
+}
+
+.footer-social-container a:hover {
+    background-color: #850503;
+}
+
+/* Footer Credit */
+.footer-credit {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000;
+    letter-spacing: 1px;
+}
+
+/* Scroll to Top */
+.scroll_top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    background-color: #850503;
+    padding: 10px;
+    border-radius: 50%;
+    color: #fff;
+}
+
+.scroll_top svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}

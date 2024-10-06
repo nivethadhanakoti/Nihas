@@ -1,0 +1,30 @@
+.chocolate-bouquet-page {
+  padding: 50px 0;
+  text-align: center; /* Center text within the page */
+}
+
+.chocolate-bouquet-heading {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.chocolate-bouquet-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between images */
+  justify-content: center; /* Center images in the container */
+}
+
+.chocolate-bouquet-image-box {
+  flex: 1 1 23%; /* Allow for slight adjustments in width */
+  max-width: calc(25% - 20px); /* Make sure the width doesn't exceed 25% */
+  overflow: hidden; /* Ensure overflow is hidden */
+}
+
+.chocolate-bouquet-image-box img {
+  width: 100%; /* Make the image fill the width of the container */
+  height: 300px; /* Set a fixed height */
+  object-fit: cover; /* Ensure images cover the entire box */
+  border-radius: 8px; /* Optional: Adds rounded corners */
+}

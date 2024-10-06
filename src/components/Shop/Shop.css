@@ -1,0 +1,63 @@
+.shop-page {
+    padding: 20px;
+}
+
+.shop-heading {
+    text-align: center;
+    font-family: 'Kaushan Script', cursive;
+    margin-bottom: 20px;
+    font-size: 40px; /* Adjust heading size if needed */
+}
+
+.product-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Wrap to next line if necessary */
+}
+
+.product-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+    width: 200px; /* Set a fixed width */
+    height: 300px; /* Set a fixed height to maintain size */
+    overflow: hidden; /* Hide overflow to maintain size */
+    background-color: #f8f8f8; /* Background color for the card */
+}
+
+.product-card img {
+    width: 100%; /* Make images responsive */
+    height: 150px; /* Set fixed height for images */
+    object-fit: cover; /* Maintain aspect ratio */
+}
+
+.product-card h3 {
+    font-size: 16px; /* Reduced font size for product name */
+    margin: 10px 0;
+    color: rgb(0, 0, 0); /* Change name text color to black */
+}
+
+.product-card p {
+    font-size: 14px; /* Reduced font size for price */
+    color: rgb(0, 0, 0); /* Change price text color to black */
+}
+
+.product-card button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: grey; /* Change button background color to grey */
+    color: rgb(255, 255, 255); /* Button text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-card button:hover {
+    background-color: #ccc; /* Lighter shade on hover */
+}
+
+.kaushan-font {
+    font-family: 'Kaushan Script', cursive;
+}

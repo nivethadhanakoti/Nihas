@@ -1,0 +1,74 @@
+.services-page {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.services-heading {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.services-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px 20px; /* Space between service boxes */
+  justify-content: space-between;
+}
+
+.service-box {
+  flex: 1 1 calc(30% - 20px); /* Adjust this to take up 30% of the row */
+  max-width: calc(30% - 20px); /* Ensure it doesn’t exceed 30% width */
+  box-sizing: border-box; /* Include padding and border in the total width */
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 20px; /* Increase padding */
+  background-color: #333; /* Dark background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  height: 500px;
+}
+
+
+.service-box img {
+  width: 100%; /* Make the image fill the width of the container */
+  height: 400px; /* Set a fixed height */
+  object-fit: cover; /* Ensure the image scales without distortion */
+  border-radius: 8px; /* Adds rounded corners */
+}
+
+.service-box:hover {
+  transform: scale(1.05); /* Add a hover effect for interactivity */
+}
+
+.service-title {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #fff; /* Make the text white */
+  font-weight: bold;
+}
+
+/* Add space between rows */
+.services-wrapper > *:nth-child(4n) {
+  margin-right: 0; /* Ensure the last item in the row has no right margin */
+}
+
+@media (max-width: 1024px) {
+  .service-box {
+    flex: 1 1 calc(45% - 20px); /* On medium screens, 2 boxes per row */
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-box {
+    flex: 1 1 calc(100% - 20px); /* On smaller screens, 1 box per row */
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-box {
+    flex: 1 1 100%; /* On extra small screens, 1 box per row */
+  }
+}

@@ -1,0 +1,30 @@
+.bouquet-page {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.bouquet-heading {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.bouquet-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between images */
+  justify-content: center;
+}
+
+.bouquet-image-box {
+  flex: 1 1 calc(25% - 20px); /* Adjust width as needed */
+  max-width: calc(25% - 20px); /* Make sure the width doesn't exceed 25% */
+  overflow: hidden; /* Ensure overflow is hidden */
+}
+
+.bouquet-image-box img {
+  width: 300px; /* Make the image fill the width of the container */
+  height: 300px; /* Set a fixed height */
+  object-fit: cover; /* Ensure images cover the entire box */
+  border-radius: 8px; /* Optional: Adds rounded corners */
+}

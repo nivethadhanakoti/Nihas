@@ -1,0 +1,236 @@
+/* General popup styling */
+.popup {
+    display: flex;
+    flex-direction: row;
+    width: 95%; /* Increased width for larger boxes */
+    margin: 2px 0 px;
+    background-color: #fff;
+    padding: 30px; /* Increased padding for larger box size */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+}
+.productsincart {
+    background-image: url('../../assets/cart/bg.jpg'); /* Update with the correct path */
+    background-size: cover; /* Cover the entire box */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    padding: 20px; /* Add some padding for content */
+    border-radius: 8px; /* Optional: Add border radius for rounded corners */
+    color: #fea6a4; /* Change text color to ensure it's readable */
+    width: 45%;
+    height:700px;
+}
+
+h2 {
+    text-align: center; /* Center the text */
+    margin: 0; /* Optional: remove default margin */
+}
+/* Products container styling */
+.products-container {
+    display: flex;
+    flex: 1;
+    gap: 15px; /* Increased gap for better spacing */
+    
+}
+
+/* Left panel: order info */
+.payment_details {
+    flex: 1;
+    background: linear-gradient(to bottom, #fea6a4, #ffcccb);  /* Gradient background */
+    padding: 30px; /* Increased padding */
+    border-radius: 8px;
+    max-height: 700px; /* Increased height */
+    overflow-y: auto; /* Enable vertical scroll if content exceeds */
+    margin-bottom: 10px; /* Space between boxes */
+}
+
+/* Form input fields */
+.name_address {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    margin-bottom: 10px;
+}
+
+/* Input field styling */
+input[type="text"], input[type="email"], input[type="date"] {
+    width: 90%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px; /* Increased font size */
+    margin-bottom: 10px; /* Add margin to each input for spacing */
+    transition: border-color 0.3s; /* Smooth transition for focus */
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="date"]:focus {
+    border-color: #850503; /* Darker border on focus */
+}
+
+/* Adjust grid layout for mobile */
+@media (max-width: 768px) {
+    .name_address {
+        grid-template-columns: 1fr; /* Stack inputs on mobile */
+    }
+}
+
+/* Radio button styling */
+fieldset {
+    margin: 2px 0;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Payment button styling */
+.proceed_payment {
+    text-align: center;
+    margin-top: 30px;
+}
+
+button {
+    background-color: #850503; /* Darker brown color */
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px; /* Larger button */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #a92b29; /* Lighter brown on hover */
+}
+
+/* Ensure responsive behavior */
+@media (max-width: 768px) {
+    .popup {
+        flex-direction: column;}
+}
+
+/* Modal styles */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 9999; /* Make sure it is above other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.modal-content {
+    background-color: black;
+    color: white; 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.modal img {
+    display: block;
+    margin: 0 auto;
+}
+
+.payment-done button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #850503;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.payment-done button:hover {
+    background-color: #a92b29;
+}
+
+.order-message {
+    color: black; /* Set the text color to black */
+    font-size: 18px; /* Optional: adjust the font size */
+    font-weight: bold; /* Optional: make the text bold */
+    margin-top: 15px; /* Optional: add some margin */
+}
+
+.cart-item {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    padding: 5px; /* Reduced padding for spacing */
+    border: 1px solid #ccc; /* Optional: Add a border for better separation */
+    border-radius: 4px; /* Rounded corners */
+    margin-bottom: 10px; /* Space between cart items */
+    max-width: 400px; /* Set a maximum width for the cart item */
+    margin-left: 70px;
+}
+
+.cart-item img {
+    width: 150px; /* Increase the size of the image */
+    height: 150px; /* Increase the height of the image */
+    object-fit: cover; /* Ensure the image covers the area */
+    margin-right: 15px; /* Space between image and text */
+}
+
+
+.cart-item-details {
+    flex: 1; /* Allow text to take up remaining space */
+}
+
+.cart-item-details h3 {
+    margin: 0; /* Remove default margin for better alignment */
+    font-size: 1.2em; /* Optional: Adjust font size */
+    color: #fea6a4;
+}
+
+.cart-item-details p {
+    margin: 5px 0; /* Consistent margin for paragraphs */
+    color: #fea6a4;
+}
+
+.quantity-container {
+    display: flex; /* Align items in a row */
+    align-items: center; /* Center align items vertically */
+}
+
+.small-button {
+    font-size: 14px; /* Smaller font size */
+    padding: 2px 5px; /* Reduced padding */
+    border: 1px solid #ccc; /* Border style */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    margin: 0 5px; /* Margin for spacing */
+    width: 30px; /* Set a fixed width for the buttons */
+    text-align: center; /* Center text */
+    background-color: #850503; /* Background color */
+}
+
+.small-button:hover {
+    background-color: #a92b29; /* Hover effect */
+}
+
+.remove-button {
+    padding: 5px 10px; /* Adjust padding to reduce size */
+    font-size: 14px; /* Adjust font size if necessary */
+    width: auto; /* Allow the button width to adjust to the content */
+    max-width: 100px; /* Set a maximum width if needed */
+    background-color: #850503; /* Background color */
+    color: #d9534f; /* Text color */
+    margin-left: 50px; /* Add space between the plus button and remove button */
+    color:white;
+}
+
+.remove-button:hover {
+    background-color: #a92b29; /* Hover effect */
+}
+.color-text {
+    color: #fea6a4; /* Change to red */
+}
