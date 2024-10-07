@@ -8,21 +8,25 @@ const CartPage = ({ cartItems, setCartItems }) => {
     senderName: '',
     senderAddress: '',
     senderDistrict: '',
-    senderCountry: '',
+    senderCountry: 'India',
     senderEmail: '',
     senderPhone: '',
     receiverName: '',
     receiverAddress: '',
     receiverDistrict: '',
-    receiverCountry: '',
+    receiverCountry: 'India',
     receiverEmail: '',
     receiverPhone: '',
-    deliveryDate: ''
+    deliveryDate: '',
+    paymentId:''
   });
 
   const [samePerson, setSamePerson] = useState(false);
   const [showQRModal, setShowQRModal] = useState(false);
   const [showOrderPlacedModal, setShowOrderPlacedModal] = useState(false);
+  const [paymentError, setPaymentError] = useState('');
+  const districts = ["Salem", "Erode", "Coimbatore"]; // Add your actual district names here
+
 
   useEffect(() => {
     if (samePerson) {
@@ -45,12 +49,26 @@ const CartPage = ({ cartItems, setCartItems }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (!formData.senderName || !formData.senderAddress || !formData.receiverName) {
+        alert('Please fill all required fields');
+        return;
+      }
+      if (!validatePhoneNumber(formData.senderPhone) || !validatePhoneNumber(formData.receiverPhone)) {
+        alert('Invalid Phone Number');
+        return;
+      }
     setShowQRModal(true);
   };
 
   const handlePaymentDone = async () => {
-    setShowQRModal(false);
-    setShowOrderPlacedModal(true);
+    if (!formData.paymentId) {
+        setPaymentError('Please enter the Payment ID');
+        return;  // Exit the function if PaymentID is not entered
+    } else {
+        setPaymentError('');
+        setShowQRModal(false);
+        setShowOrderPlacedModal(true);
+    }
 
     const orderDetails = {
       senderName: formData.senderName,
@@ -69,6 +87,7 @@ const CartPage = ({ cartItems, setCartItems }) => {
       quantity: cartItems.reduce((acc, item) => acc + item.inCart, 0),
       totalAmt: calculateTotalPrice(),
       deliveryDate: formatDate(formData.deliveryDate),
+      paymentId: formData.paymentId,
     };
 
     try {
@@ -118,7 +137,7 @@ const CartPage = ({ cartItems, setCartItems }) => {
   // Handle radio button change for sender/receiver
   const handleRadioChange = (e) => {
     setSamePerson(e.target.value === 'yes');
-};
+   };
 
    // Update cart item quantity
    const updateCartItemQuantity = (itemId, newQuantity) => {
@@ -144,9 +163,15 @@ const CartPage = ({ cartItems, setCartItems }) => {
         const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
         return new Date(dateString).toLocaleDateString('en-GB', options); // en-GB format: DD/MM/YYYY
       };
+
+      const validatePhoneNumber = (phone) => {
+        const phoneRegex = /^[6789]\d{9}$/; // Starts with 6, 7, 8, or 9 and is 10 digits long
+        return phoneRegex.test(phone);
+      };
       
   return (
     <div className="popup">
+        
         <nav className="navbar" id="nav">
             {/* Navigation Component */}
         </nav>
@@ -205,10 +230,15 @@ const CartPage = ({ cartItems, setCartItems }) => {
                                 type="text" name="senderAddress" placeholder="Address*"
                                 value={formData.senderAddress} onChange={handleChange} required
                             />
-                            <input
-                                type="text" name="senderDistrict" placeholder="District*"
-                                value={formData.senderDistrict} onChange={handleChange} required
-                            />
+                            <select
+                                name="senderDistrict" value={formData.senderDistrict} onChange={handleChange} required>
+                                    <option value="" style={{ color: 'grey' }}>District*</option>
+                                    {districts.map((district, index) => (
+                                        <option key={index} value={district}>
+                                            {district}
+                                        </option>
+                                    ))}
+                            </select>
                             <input
                                 type="text" name="senderCountry" placeholder="Country*"
                                 value={formData.senderCountry} onChange={handleChange} required
@@ -246,10 +276,24 @@ const CartPage = ({ cartItems, setCartItems }) => {
                                 type="text" name="receiverAddress" placeholder="Address"
                                 value={formData.receiverAddress} onChange={handleChange} disabled={samePerson}
                             />
-                            <input
-                                type="text" name="receiverDistrict" placeholder="District"
-                                value={formData.receiverDistrict} onChange={handleChange} disabled={samePerson}
-                            />
+                            {samePerson ? (
+                                <>
+                                    <input
+                                        type="text" name="receiverDistrict" placeholder="District"
+                                        value={formData.receiverDistrict} onChange={handleChange} disabled={samePerson}
+                                    />
+                                </>
+                            ) : (
+                                <select
+                                    name="receiverDistrict" value={formData.receiverDistrict} onChange={handleChange} required>
+                                        <option value="">District*</option>
+                                        {districts.map((district, index) => (
+                                            <option key={index} value={district}>
+                                                {district}
+                                            </option>
+                                        ))}
+                                </select>
+                            )}
                             <input
                                 type="text" name="receiverCountry" placeholder="Country"
                                 value={formData.receiverCountry} onChange={handleChange} disabled={samePerson}
@@ -267,7 +311,7 @@ const CartPage = ({ cartItems, setCartItems }) => {
                             <label htmlFor="Delivery">Delivery Date</label>
                             <input
                                 type="date" name="deliveryDate" value={formData.deliveryDate}
-                                onChange={handleChange}required
+                                onChange={handleChange} required
                             />
                         </div>
 
@@ -279,13 +323,22 @@ const CartPage = ({ cartItems, setCartItems }) => {
             </div>
         </div>
 
+
         {/* QR Code Modal */}
         {showQRModal && (
             <div className="modal">
                 <div className="modal-content">
                     <img src={qrcode} alt="Scan Code" style={{ width: '500px', height: '300px' }} />
                     <div className="payment-done">
-                        <button onClick={handlePaymentDone}>Payment Done</button>
+                        <p>Make a payment to the above UPI and enter the payment ID below</p>
+                        <input
+                            type="text" placeholder="Payment ID"
+                            name="paymentId" value={formData.paymentId} onChange={handleChange}
+                        />
+                        {paymentError && <p>{paymentError}</p>}
+                        <button className="cart-button" onClick={handlePaymentDone}>
+                            Payment Done
+                        </button>
                     </div>
                 </div>
             </div>

@@ -45,6 +45,7 @@ h2 {
     margin-bottom: 10px; /* Space between boxes */
 }
 
+
 /* Form input fields */
 .name_address {
     display: grid;
@@ -54,7 +55,7 @@ h2 {
 }
 
 /* Input field styling */
-input[type="text"], input[type="email"], input[type="date"] {
+input[type="text"], input[type="email"], input[type="date"]{
     width: 90%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -63,6 +64,19 @@ input[type="text"], input[type="email"], input[type="date"] {
     margin-bottom: 10px; /* Add margin to each input for spacing */
     transition: border-color 0.3s; /* Smooth transition for focus */
 }
+
+/* Input field styling */
+select{
+    width: 100%;
+    color:black;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px; /* Increased font size */
+    margin-bottom: 10px; /* Add margin to each input for spacing */
+    transition: border-color 0.3s; /* Smooth transition for focus */
+}
+
 
 input[type="text"]:focus, input[type="email"]:focus, input[type="date"]:focus {
     border-color: #850503; /* Darker border on focus */
